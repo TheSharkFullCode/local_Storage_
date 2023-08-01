@@ -1,4 +1,4 @@
-const pokemons = [
+export const pokemons = [
   { id: 1, name: 'bulbasaur', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png' },
   { id: 2, name: 'ivysaur', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png' },
   { id: 3, name: 'venusaur', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png' },
@@ -21,17 +21,62 @@ const pokemons = [
   { id: 20, name: 'raticate', img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/20.png' }
 ];
 
-const pokeMon = pokemons.map((cardpokemon)=>console.log(cardpokemon));
-// const img = document.createElement("img");
-// img.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png";
-// document.body.appendChild(img);
+// const pokeMon = pokemons.map((cardpokemon)=>{
+//     const img = document.createElement("img");
+//     img.src = cardpokemon.img
+//     document.body.appendChild(img);
 
+
+// });
+let arrayObj = [];
 for (let i = 0; i < pokemons.length; i++) {
     const elementpokemon = pokemons[i];
+    
+    
+    const cardsPokemons = document.createElement("div");
+    cardsPokemons.style.width = '150px';
+    cardsPokemons.style.height = "200px";
+    cardsPokemons.style.border = 'solid blue';
+    cardsPokemons.style.display = "flex"
+    cardsPokemons.style.flexDirection = "column"
+    cardsPokemons.style.justifyContent = 'space-around'
+    document.body.appendChild(cardsPokemons)
+
     const imgpokemon = document.createElement("img");
     imgpokemon.src = elementpokemon.img;
-    document.body.appendChild(imgpokemon)
-}
+
+    const buttons = document.createElement("button");
+    buttons.textContent="agregar compra";
+    buttons.style.width = '100px'
+    cardsPokemons.appendChild(buttons);
+
+    cardsPokemons.appendChild(imgpokemon)
+
+    buttons.addEventListener('click',()=>{
+        // console.log("🚀 ~ file: pokemon.js:34 ~ elementpokemon:", elementpokemon)
+        // localStorage.setItem("buysCards",JSON.stringify(elementpokemon));
+        //a mi nuevo array de objetos de pokemos, le aplico una porpiedad unshift y entre(), el objeto a agregar: elementpokemon
+        //y voy a convertir a cadena json, mi array de objetos que antes estaba vacio.
+        arrayObj.unshift(elementpokemon)
+
+        localStorage.setItem("buysCards",JSON.stringify(arrayObj));
+      })
+    }
+   
+
+// const pokeJSON = JSON.stringify(pokemons)
+// console.log("🚀 ~ file: pokemon.js:61 ~ pokeJSON:", pokeJSON)
+
+
+// const pokeMon2 = pokemons.forEach((cardpokemon)=>{
+//     const img = document.createElement("img");
+//     img.src = cardpokemon.img
+//     document.body.appendChild(img);
+
+
+// });
+
+   
 
 
 

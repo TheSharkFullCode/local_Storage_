@@ -45,7 +45,6 @@ let student = {
 }
 console.log("🚀 ~ file: script.js:48 ~ student:", student)
 
-// const studenJSON = JSON.stringify(student)
 localStorage.setItem("student",JSON.stringify(student))
 localStorage.getItem(student)
 console.log("🚀 ~ file: script.js:52 ~ student:", student)
