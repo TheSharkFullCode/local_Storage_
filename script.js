@@ -51,7 +51,7 @@ localStorage.getItem(student)
 console.log("🚀 ~ file: script.js:52 ~ student:", student)
 //primero debes convertir el objeto student a una cadena JSON.tringify(), luego puedes utilizar la funcion localStorage.setItem():
 
-const studenJSON = JSON.stringify(student)
+// const studenJSON = JSON.stringify(data)
 // Ejercicio 3
 // Ahora crea un formulario para que el usuario pueda rellenar la información del ejercicio anterior. Cuando se envíe el formulario, se deberá guardar el mismo objeto en localStorage.
 
@@ -151,16 +151,16 @@ div.appendChild(inputSubmit);
 inputSubmit.addEventListener("click", function(event) {
     event.preventDefault();
     console.log('el formulario se ha enviado');
-    // localStorage.setItem("student", studenJSON)
-
+    
     const data = {
         name: input.value,
         lastName: inputApellido.value,
         age: inputEdad.value,
         city: inputCiudad.value,
         courses: selectCursos.value,
-      };
-      console.log("🚀 ~ file: script.js:163 ~ inputSubmit.addEventListener ~ data:", data)
+    };
+    console.log("🚀 ~ file: script.js:163 ~ inputSubmit.addEventListener ~ data:", data)
+    localStorage.setItem("user", JSON.stringify(data))
       
 })
 
